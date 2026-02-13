@@ -1,917 +1,168 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SMIHEART</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Environmental Cost of Generative AI</title>
+      <link rel="icon" type="image/icon" href="earth.png">
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root{
+    --bg: #0f1720;
+    --panel: #132a3a;
+    --accent: #3aa374;
+    --accent-light: #b7e4c7;
+    --text: #f1f5f9;
+}
+
+body{
+    margin:0;
+    font-family:'Inter', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+}
+
+header{
+    background: var(--panel);
+    padding:20px;
+    text-align:center;
+    border-bottom: 3px solid var(--accent);
+}
+
+header h1{
+    margin:0;
+    font-weight:700;
+    letter-spacing:1px;
+}
+
+nav{
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    background:#0c1b26;
+}
+
+nav button{
+    background:none;
+    border:none;
+    color:var(--text);
+    padding:15px 20px;
+    font-weight:600;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+nav button:hover{
+    background: rgb(134, 255, 164);
+    color:#000;
+}
+
+.tab{
+    display:none;
+    max-width:900px;
+    margin:40px auto;
+    padding:30px;
+    background:var(--panel);
+    border-radius:10px;
+    box-shadow:0 0 15px rgba(0,0,0,0.4);
+}
+
+.tab.active{
+    display:block;
+}
+
+img{
+    max-width:100%;
+    border-radius:10px;
+    margin:20px 0;
+}
+
+h2{
+    color:var(--accent-light);
+}
+
+footer{
+    text-align:center;
+    padding:20px;
+    font-size:0.9em;
+    opacity:0.7;
+}
+
+@media(max-width:700px){
+    nav{
+        flex-direction:column;
+    }
+}
+</style>
 </head>
 
-<div class="layout">
-<header class="site-header">
-  <img src="SMIHEARTWEB.gif">
+<body>
+
+<header>
+    <h1>The Environmental Cost of Generative AI</h1>
 </header>
 
-<nav class="site-nav">      
-<a href="/funnytunes">FUNNY TUNES</a>
-<a href="/portfolio">PORTFOLIO</a>
-<a href="/Shrines">SHRINES</a>
-<a href="/Neuroshare/ns_disclaimer">CONTROLLED BY CHOICES</a>
-<a href="/characters">CHARACTERS (soon...)</a>
+<nav>
+    <button onclick="openTab('home')">Home</button>
+    <button onclick="openTab('cost')">Tab One</button>
+    <button onclick="openTab('energy')">Tab Two</button>
+    <button onclick="openTab('solutions')">Tab Three</button>
+    <button onclick="openTab('works')">Works Cited</button>
 </nav>
 
-<div class="page-wrap">
+<div id="home" class="tab active">
+    <h2>Introduction</h2>
 
+    <img src="The AI Energy Shock.webp" alt="Data center servers">
 
-    <aside class="left-updates glass">
-<div class="updates-scroll">
-      <p>1/28/2026: fighting the demons (the demons are css)</p>
-      <p>1/19/2026: You will NOT BELIEVE how much debugging and editing I'm tryna do... considering changing the index layout too (minimally)</p>
-      <p>1/19/2026: Beginning to work on my portfolio section, aquiring artworks... hopefully they're not all lost to time. God I Love Javascript</p>
-      <p>7/23/2025: ALMOST HAVE MY MAIN PAGE DONE! Added extra objects, changed code, etc. Now I am satisfied with my website.</p>
-      <p>29/5/2025: ALMOST HAVE MY MAIN PAGE DONE! Added extra objects, changed code, etc. Now I am satisfied with my website.</p>
-      <p>28/5/2025: Moved the CBC Preview, made more pages...</p>
-      <p>Afternoon update: Yolotli when breaking the website is at the function (trying to figure out coding stuff).</p>
-      <p>???: NOT A BROKEN WEBSITE ANYMORE 🎉</p>
-    </div>
-  </aside>
-
-<aside class="left-webrings glass">
-<div class="webring-rotator">
-
-    <iframe
-      src="/webrings/apartment.html"
-      class="webring-frame active"
-      loading="lazy">
-    </iframe>
-    
-    <iframe
-      src="/webrings/tv time.html"
-      class="webring-frame active"
-      loading="lazy">
-    </iframe>
-
-  <iframe
-      src="https://silly.possiblyaxolotl.com/ring/webstring.js"
-      class="webring-frame active"
-      loading="lazy">
-    </iframe>
-    
-    <!-- add more later -->
-
-  </div>
-
-<script>
-  const frames = document.querySelectorAll('.webring-frame');
-  let current = 0;
-
-  setInterval(() => {
-    frames[current].classList.remove('active');
-    current = (current + 1) % frames.length;
-    frames[current].classList.add('active');
-  }, 5000);
-</script>
-
-</aside>
-
-  <main class="glass">
- <marquee class="cute-marquee" behavior="alternate" scrollamount="5">
-    <div class="marquee-content">
-      <h1>WELCOME TO SMIHEART'S WEB! WE'VE GOT STORIES, ART, AND FUN ALL AROUND! </h1>
-     </div>
-      </marquee>
-
-      <div class="bio-id-card">
-        <div class="card-inner">
-          <div class="card-front">
-            <p>Who is Smiheart?</p>
-          </div>
-          <div class="card-back">
-            <div class="card-bg-image"></div>
-            <div class="card-back-text">
-              <h2>🫀☀️Mitzemoa Noyollotzin</h2>
-              <p><strong>SMIHEARTSTARZZ</strong>, aka Yolotli Moreno, is an anonymous Mexican-American artist and storymaker. A digital entity emerged onto the real world!️️</p>
-              <p>Creator of Controlled by Choices. 🕊️🦾</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <hr>
-
-      <blockquote>Recently made a <a href="/Shrines/DenkGalvShrine">webshrine</a> for the first time!</blockquote>
-     
-     
-<div class="vista-player">
-  <div class="video-thumb">
-    <div id="ytPlayer"></div> 
-  </div>
-  <div class="player-controls">
-    <button id="playBtn">▶️ Play</button>
-    <input type="range" id="seekBar" value="0" max="100">
-  </div>
-</div>
-
-<script>
-  var player;
-  function onYouTubeIframeAPIReady() {
-    player = new YT.Player('ytPlayer', {
-  height: '315',
-  width: '560',
-  videoId: '6hx2Ql_WmZE',
-  playerVars: {
-    'autoplay': 1,
-    'loop': 1,
-    'playlist': '6hx2Ql_WmZE', 
-    'controls': 1,
-    'enablejsapi': 1
-  },
-  events: {
-    'onReady': onPlayerReady
-  }
-});
-
-  }
-
-  function onPlayerReady(event) {
-    const playBtn = document.getElementById('playBtn');
-    const seekBar = document.getElementById('seekBar');
-
-    playBtn.addEventListener('click', () => {
-      const state = player.getPlayerState();
-      if (state === YT.PlayerState.PLAYING) {
-        player.pauseVideo();
-        playBtn.textContent = '▶️ Play';
-      } else {
-        player.playVideo();
-        playBtn.textContent = '⏸️ Pause';
-      }
-    });
-
-    setInterval(() => {
-      const duration = player.getDuration();
-      const current = player.getCurrentTime();
-      if (duration > 0) {
-        seekBar.value = (current / duration) * 100;
-      }
-    }, 500);
-
-    seekBar.addEventListener('input', () => {
-      const duration = player.getDuration();
-      const targetTime = (seekBar.value / 100) * duration;
-      player.seekTo(targetTime, true);
-    });
-  }
-
-  const tag = document.createElement('script');
-  tag.src = "https://www.youtube.com/iframe_api";
-  var firstScriptTag = document.getElementsByTagName('script')[0];
-  firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-</script>
-
+    <h5>Richard Hurd. "The AI Energy Shock." Licensed under Creative Commons Attribution-ShareAlike 3.0 Unported.</h5>
 <hr>
-
-<div class="xp-popup">
-  <div class="xp-header">BLINKIES.EXE ✧･ﾟ</div>
-  <div class="infinite-banner">
-    <div class="banner-track">
-      <!-- Duplicate blinkies once for infinite loop -->
-      <img src="https://blinkies.neocities.org/b/display/0114-tbh.gif" alt="tbhautism">
-     <img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/dacb9433-004e-41ff-b12b-784a8020426a/dg01zad-61cc3c93-dfd5-41dc-ae20-ceba4fd3c130.gif?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcL2RhY2I5NDMzLTAwNGUtNDFmZi1iMTJiLTc4NGE4MDIwNDI2YVwvZGcwMXphZC02MWNjM2M5My1kZmQ1LTQxZGMtYWUyMC1jZWJhNGZkM2MxMzAuZ2lmIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.utg421r6Ir1yQ8C3HrhVdM9uzVEyfj3ezTpoA0ii_68" alt="blackcatlove">
-      <img src="https://adriansblinkiecollection.neocities.org/a87.gif" alt="korneilius">
-      <img src="https://adriansblinkiecollection.neocities.org/g104.gif" alt="catletmelive">
-      <img src="https://adriansblinkiecollection.neocities.org/a41.gif" alt="ROCKMUSIC">
-      <img src="https://plasticdino.net/blinkie/sucklet.gif" alt="sucklet">
-   <img src="https://64.media.tumblr.com/df96fe900a879a36d0284bd8b3c0e918/12784ca3297a8014-46/s250x400/f0410e6baa0e15ca89da914ffb0a6b974cde706d.gifv" alt="denki sai">
-    <img src="https://files.catbox.moe/n7apmf.webp" alt="tummyhurtykity">
-   <img src="https://64.media.tumblr.com/be04ed35e0357e326e4a9a9e07a6bff1/ec4e0e3064314d61-df/s250x400/7096aa833d66ae402147c16d83e61834f51d5d2a.gifv" alt="internet angel">
- <img src="https://rentryresource.neocities.org/blinkies/myblinkies/the%20bitch%20appears.gif" alt="4theluvofgod" style="width: 150px; height: auto">
-      <!-- DUPLICATE THEM ALL AGAIN for a smooth loop... augh im a nervous wreck -->
-      <img src="https://blinkies.neocities.org/b/display/0114-tbh.gif" alt="tbhautism">
-         <img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/dacb9433-004e-41ff-b12b-784a8020426a/dg01zad-61cc3c93-dfd5-41dc-ae20-ceba4fd3c130.gif?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcL2RhY2I5NDMzLTAwNGUtNDFmZi1iMTJiLTc4NGE4MDIwNDI2YVwvZGcwMXphZC02MWNjM2M5My1kZmQ1LTQxZGMtYWUyMC1jZWJhNGZkM2MxMzAuZ2lmIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.utg421r6Ir1yQ8C3HrhVdM9uzVEyfj3ezTpoA0ii_68" alt="blackcatlove">
-      <img src="https://adriansblinkiecollection.neocities.org/a87.gif" alt="korneilius">
-      <img src="https://adriansblinkiecollection.neocities.org/g104.gif" alt="catletmelive">
-      <img src="https://adriansblinkiecollection.neocities.org/a41.gif" alt="ROCKMUSIC">
-      <img src="https://plasticdino.net/blinkie/sucklet.gif" alt="sucklet">
-  <img src="https://64.media.tumblr.com/df96fe900a879a36d0284bd8b3c0e918/12784ca3297a8014-46/s250x400/f0410e6baa0e15ca89da914ffb0a6b974cde706d.gifv" alt="denki sai">
-    <img src="https://files.catbox.moe/n7apmf.webp" alt="tummyhurtykity">
-  <img src="https://64.media.tumblr.com/be04ed35e0357e326e4a9a9e07a6bff1/ec4e0e3064314d61-df/s250x400/7096aa833d66ae402147c16d83e61834f51d5d2a.gifv" alt="internet angel">
-     <img src="https://rentryresource.neocities.org/blinkies/myblinkies/the%20bitch%20appears.gif" alt="4theluvofgod" style="width: 150px; height: auto">
-  </div>
-    </div>
-  </div>
-</main>
-
-  <aside class="right-sidebar glass">
-      <div class="sidebar-section">
-        <div class="sidebar-title">Buttons!</div>
-        <div class="button-grid">
-          <a href="http://users.smartgb.com/g/g.php?a=s&i=g19-02005-24" target="_blank">
-            <img src="http://extras.smartgb.com/b/gb_80x40.gif" alt="Guestbook">
-          </a>
-          <a href="https://fustilugz.neocities.org/" target="_blank">
-            <img src="https://fustilugz.neocities.org/buttons/7/7/3.gif" alt="GRPHCDSGN">
-          </a>
-          <a href="https://88by31.neocities.org/" target="_blank">
-            <img src="https://88by31.neocities.org/web/bvwac.gif" alt="Computer Best">
-          </a>
-            <a href="https://64.media.tumblr.com/33b7adb6bd0bee46803afae8f021505b/ee99974c9742bf04-c7/s100x200/f32c2e47d5d56d51023d53c25ec2518633ed8966.gifv" target="_blank">
-            <img src="https://64.media.tumblr.com/33b7adb6bd0bee46803afae8f021505b/ee99974c9742bf04-c7/s100x200/f32c2e47d5d56d51023d53c25ec2518633ed8966.gifv" alt="spamptomn">
-          </a>
-            <a href="https://deepfriedpizza.neocities.org/index.html" target="_blank">
-            <img src="https://deepfriedpizza.neocities.org/dfpbutton.png"></a><alt="wincentys_cool_site!">
-            
-          <a href="https://www.glitter-graphics.com"><img src="http://dl3.glitter-graphics.net/pub/422/422843la9otw8846.gif" width=327 height=158> </a><br><a href="https://www.glitter-graphics.com" target=_blank>
-            <a href="https://epic-gus-sauce.neocities.org/"><img src="https://epic-gus-sauce.neocities.org/images/GusEpicSaucesButton.gif"></a>
-          </a>
-          
-     
-        </div>
-      </div>
-<br>
-<hr>
-<br>
-      <div class="sidebar-section">
-        <div class="sidebar-title">Add My Button!</div>
-        <div class="site-button">
-          <img src="smiweb.gif" alt="Smiheart Button">
-          <textarea readonly>&lt;a href="https://smiheart.neocities.org/"&gt;&lt;img src="smiweb.gif" alt="Smiheart"&gt;&lt;/a&gt;</textarea>
-        </div>
-      </div>
-      <br>
- <li><a href="https://linktr.ee/SMIHEARTSTARZZ">LINKS</a></li>
-         <li><a href="https://neocities.org/site/smiheart">WEB PROFILE!</a></li>
-<hr>
-<div class="yumering">
-<div id="img"></div>
-
-<div id="inbox">
-this webmaster is a <b>sharing</b> <b>Chuck TESMG</b> <b>yume (self shipper)</b><br>
-<a href="https://moekkis.neocities.org/yumeclique.html">join the yumeclique !</a>
-</div>
+<p>Artificial intelligence, mostly used to refer to Large Language Models (LLMs), is often framed as a revolutionary technological advancement that promises efficiency across nearly every sector of society. However, behind their sleek interfaces and instant responses lies a massive physical infrastructure that is slowly draining our natural resources.</p>
+    <p>
+        Generative AI poses a significant environmental threat, considering its high energy and water consumption. Immediate policy action to mandate the usage of renewable energy is necessary to avoid accelerating extreme climate change.
+    </p>
 </div>
 
-<style>
+<div id="cost" class="tab">
+    <h2>Point One</h2>
 
-.yumering {
-    display:flex;
-    box-sizing:border-box;
-    gap:10px;
-    justify-content:center;
-    align-items:center;
-    padding: 10px;
-    width: 160px;
-    border-radius: 5px;
-    border: 1px solid black;
-    -webkit-font-smoothing:none;
-    background: linear-gradient(to bottom, transparent, white), url('https://files.catbox.moe/dbv9b2.gif');
-    background-size: 100px;
-}
-
-.yumering #img {
-    width: 90px; height: 90px;
-    background-image: url('https://64.media.tumblr.com/15f8952ab6ed2bf24e499462b68adfa0/871f40a322c2aed3-56/s540x810/ed87dd4cd6678fb4ed8e4dcda776176c6f27627b.jpg');
-    border:1px solid black;
-    border-radius: 2px;
-    background-size:cover;
-    background-position:center;
-}
-
-.yumering #inbox {
-    width: 190px;
-    font-size:15px;
-    color:#690000
-}
-
-.yumering a:link{
-  color: #f90057;
-}
- 
-</style> 
-
-</aside>
+    <p>placeholder text</p>
 </div>
 
-<footer class="comments glass">
-        <div id="HCB_comment_box">
-          <a href="http://www.htmlcommentbox.com">Widget</a> loading comments...
-        </div>
-        <script type="text/javascript" id="hcb">
-          if (!window.hcb_user) { hcb_user = {}; }
-          (function () {
-            var s = document.createElement("script");
-            s.setAttribute("type", "text/javascript");
-            s.setAttribute("src", "https://www.htmlcommentbox.com/jread?page=" + encodeURIComponent(location.href) + "&mod=%241%24wq1rdBcg%24ROPo2tqcshdYTgdebxiAA1&opts=16798&num=10");
-            document.getElementsByTagName("head")[0].appendChild(s);
-          })();
-        </script>
-     </div>
+<div id="energy" class="tab">
+    <h2>Point Two</h2>
+
+    <p>placeholder text</p>
+</div>
+
+<div id="solutions" class="tab">
+    <h2>Point Three</h2>
+
+    <p>placeholder text</p>
+</div>
+
+<div id="works" class="tab">
+    <h2>Works Cited</h2>
+<p><span style="font-weight: 400;">Adam Zewe&nbsp; |&nbsp; MIT News. &ldquo;Explained: Generative AI&rsquo;s Environmental Impact.&rdquo; </span><em><span style="font-weight: 400;">MIT News | Massachusetts Institute of Technology</span></em><span style="font-weight: 400;">, news.mit.edu/2025/explained-generative-ai-environmental-impact-0117.</span></p>
+<p><span style="font-weight: 400;">&ldquo;AI Has an Environmental Problem. Here&rsquo;s What the World Can Do about That.&rdquo; </span><em><span style="font-weight: 400;">UNEP - UN Environment Programme</span></em><span style="font-weight: 400;">, www.unep.org/news-and-stories/story/ai-has-environmental-problem-heres-what-world-can-do-about.</span></p>
+<p><span style="font-weight: 400;">Kanungo, Alokya. &ldquo;The Real Environmental Impact of AI.&rdquo; </span><em><span style="font-weight: 400;">Earth.Org</span></em><span style="font-weight: 400;">, 5 Mar. 2024, earth.org/the-green-dilemma-can-ai-fulfil-its-potential-without-harming-the-environment/.</span></p>
+<p><span style="font-weight: 400;">Noble, Gordon, and Fiona Berry. &ldquo;Ai&rsquo;s Environmental Footprint: How Much Energy Does It Take to Run CHATGPT?&rdquo; </span><em><span style="font-weight: 400;">Planet Detroit</span></em><span style="font-weight: 400;">, 2 Oct. 2024, planetdetroit.org/2024/10/ai-energy-carbon-emissions/.</span></p>
+<p><span style="font-weight: 400;">Office, U.S. Government Accountability. &ldquo;Artificial Intelligence: Generative AI&rsquo;s Environmental and Human Effects.&rdquo; </span><em><span style="font-weight: 400;">Artificial Intelligence: Generative AI&rsquo;s Environmental and Human Effects | U.S. GAO</span></em><span style="font-weight: 400;">, www.gao.gov/products/gao-25-107172. Accessed 12 Dec. 2025. </span></p>
+</div>
+
+<footer>
+    Senior Research Project | Citlalli Ramos | 2026
 </footer>
-<style>
 
-:root {
-  --bg: #000;
-  --panel-bg: #ff2969;
-  --sidebar-bg: #4e1127;
-  --border-dark: #390014;
-  --border-light: #ff7aa8;
-  --text-main: #5d0b02;
-  --text-light: #ffffff;
-  --accent: #ff2969;
-  --link-color: #ffffff;
-  --link-color-hover: rgb(255, 111, 250);
-  --radius: 8px;
-  --gap: 20px;
-  --sidebar-width: 260px;
+<script>
+function openTab(tabId){
+    const tabs = document.querySelectorAll('.tab');
+    tabs.forEach(tab => tab.classList.remove('active'));
+    document.getElementById(tabId).classList.add('active');
 }
+</script>
 
-* {
-  box-sizing: border-box;
-}
-
-body {
-    cursor: url(https://cur.cursors-4u.net/symbols/sym-3/sym220.png), auto;
-  margin: 0;
-  font-family: Georgia, serif;
-  background:
-    url("red_shineBG.gif")
-    repeat;
-  color: var(--text-main);
-}
-
-.layout {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: var(--gap);
-  display: grid;
-  gap: var(--gap);
-}
-
-
-.site-header {
-  width: 100%;
-  text-align: center;
-}
-
-.site-header img {
-  width: 100%;
-  max-height: 280px;
-  object-fit: cover;
-}
-
-.page-wrap {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 12px;
-  padding-left: 0;
-    display: grid;
-grid-template-columns: 120px 260px 1fr 200px;
-  grid-auto-rows: auto;
-  gap: 20px;
-
-}
-
-.site-nav {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 12px;
-  padding: 12px;
-  background:
-    linear-gradient(to bottom, #ff4d88, #8b0022);
-  border: 2px solid #444;
-  box-shadow:
-    inset 0 1px 0 #84252566,
-    0 6px 15px rgba(56, 1, 1, 0.6);
-}
-
-
-nav a {
-  padding: 8px 16px;
-  background: linear-gradient(to bottom, #ff0000, #8b0000);
-  border: 2px solid #444;
-  border-radius: 6px;
-  font-weight: bold;
-  text-decoration: none;
-  color: #000;
-    transition: all 0.3s ease-in-out;
-  box-shadow:
-    inset 0 1px 0 #fff,
-    0 2px 5px rgba(0,0,0,0.4);
-}
-
-nav a:hover {
-  background: linear-gradient(to bottom, #ffffff, #d4d4d4);
-}
-
-
-aside {
-  padding: 18px;
-  background: var(--sidebar-bg);
-  overflow: visible;
-    gap: 20px;
-  color: var(--text-light);
-  border-radius: var(--radius);
-  border:
-    2px solid var(--border-dark);
-  box-shadow:
-    inset 0 1px 0 #ffffff33,
-    0 8px 20px rgba(0,0,0,0.6);
-  position: relative;
-}
-
-aside::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background:
-    url("https://img.freepik.com/free-vector/christmas-silver-glittery-background-with-sparkly-stars-design_1048-20930.jpg");
-  opacity: 0.15;
-  mix-blend-mode: screen;
-  pointer-events: none;
-}
-
-li {
-    list-style-type: none;
-}
-a {
-  color: rgb(255, 255, 255);
-  text-decoration: none;
-}
-
-a:hover {
-  color: rgb(255, 0, 251);
-  text-decoration: underline;
-}
-
-.webring-rotator {
-  position: relative;
-  width: 100%;
-height: 380px; 
-  flex: 1;
-}
-
-.webring-frame {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  border: none;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.6s ease;
-}
-
-.webring-frame.active {
-  opacity: 1;
-  pointer-events: auto;
-}
-
-
-main {
-  padding: 28px;
-  background: var(--panel-bg);
-  border-radius: var(--radius);
-  border-top: 2px solid var(--border-light);
-  border-left: 2px solid var(--border-light);
-  border-bottom: 2px solid var(--border-dark);
-  border-right: 2px solid var(--border-dark);
-  box-shadow:
-    inset 0 1px 0 #ffffff55,
-    0 10px 30px rgba(0,0,0,0.6);
-}
-.left-updates {
- grid-column: 1 / 3;
-  grid-row: 1;
-  overflow-y: auto;
-  max-height: 70vh;
-}
-
-.left-webrings {
-  grid-column: 1 / 3;
-  grid-row: 2;
-  max-width: none;
-}
-
-main {
-  grid-column: 3;
-  grid-row: 1 / span 2;
-}
-
-
-.right-sidebar {
-  grid-column: 4;
-  grid-row: 1 / span 2;
-}
-
-main h1, main h2, main h3 {
-  margin-top: 0;
-  text-shadow: 1px 1px 4px #fff4;
-}
-
-.left-updates,
-.left-webrings {
-  padding: 20px;
-}
-
-.apartment-webring {
- max-width: 50px;
-}
-
-footer {
-  overflow-y: auto;
-  max-width: auto;
-  padding: 20px;
-  background:
-    linear-gradient(to bottom, #2a000a, #120004);
-  border: 2px solid var(--border-dark);
-  border-radius: var(--radius);
-  color:  rgba(255, 0, 119, 0.7);
-  box-shadow:
-    inset 0 1px 0 #ffffff22,
-    0 8px 20px rgba(255, 0, 119, 0.7);
-}
-
-
-#HCB_comment_box {
-  max-height: 1000px;
-  overflow-y: auto;
-  background: rgba(255, 41, 105, 0.25);
-  color: #fff;
-}
-
-#HCB_comment_box,
-#HCB_comment_box p,
-#HCB_comment_box span,
-#HCB_comment_box div {
-  color: #fff !important;
-}
-
-#HCB_comment_box .comment {
-  background: rgba(40, 0, 15, 0.85) !important;
-  border: 1px solid #ff5c9d !important;
-  border-radius: 8px;
-  padding: 10px;
-}
-
-#HCB_comment_box .author-name {
-  color: #ff0090 !important;
-  font: rgba(255, 0, 144);
-}
-#HCB_comment_box a {
-  color: #ff8fff !important;
-}
-#HCB_comment_box .hcb-icon, 
-#HCB_comment_box .hcb-rss {
-    display: none !important;
-}
-
-::-webkit-scrollbar {
-  width: 10px;
-}
-::-webkit-scrollbar-track {
-  background-color: #7c24ff
-}
-
-::-webkit-scrollbar-thumb {
-  background: linear-gradient(#ff2969, #8b0000);
-  border: 1px solid #000;
-}
-
-
-main hr {
-  border: 0;
-  border-top: 2px solid #8b0000;
-  margin: 1.5em 0;
-}
-
-blockquote {
-  background: rgba(15, 0, 90, 0.371);
-  color: rgb(49, 14, 14);
-  padding: 20px;
-  margin: 1em 0;
-  border-radius: 10px;
-}
-
-.cute-marquee {
-    width: 100%;
-    height: 100px;
-    overflow: hidden;
-    background-color: #330000; 
-    border: 2px solid #ff1493; 
-    padding: 15px 0;
-    box-sizing: border-box;
-}
-
-.marquee-content h1 {
-    font-size: 40px;
-    font-weight: bold;
-    text-transform: uppercase;
-background: linear-gradient(to bottom, #ff0000, #8b0000);    
- background-clip: text;
-    background-clip: text;
-    color: transparent;
-  
-    text-shadow: 0 0 5px rgba(255, 20, 147, 0.7), 0 0 10px rgba(139, 0, 0, 0.5);
-    display: inline-block;
-    white-space: nowrap;
-    margin: 0; 
-}
-
-.image {
-  display: block;
-  width: 700 px;
-  height: auto;
-  max-width: 100%;
-}
-
-.full-width-image {
-  display: block;
-  width: 100%;
-  height: auto;
-}
-
-.images {
-  display: flex;
-  width: calc(100% + 5px + 5px);
-  margin-left: -5px;
-  margin-right: -5px;
-}
-
-.images img {
-  width: 100%;
-  height: auto;
-  padding: 5px;
-  margin: 0;
-  overflow: hidden;
-}
-
-.bio-id-card {
-  width: 100%;
-  max-width: 650px;
-  height: 300px;
-  margin: 2rem auto;
-  perspective: 1000px;
-  border-radius: 12px;
-}
-
-.card-inner {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  transition: transform 0.8s;
-  transform-style: preserve-3d;
-  border: 4px solid #7c24ff;
-  border-radius: 12px;
-  box-shadow: 0 0 20px #5d051faa;
-}
-
-.bio-id-card:hover .card-inner {
-  transform: rotateY(180deg);
-}
-
-.card-front, .card-back {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  border-radius: 12px;
-  backface-visibility: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: Georgia, serif;
-  color: white;
-  padding: 2rem;
-}
-
-.card-front {
-  background-color: #000;
-  color: #ff2969;
-  font-size: 1.5rem;
-  text-align: center;
-}
-
-.card-back {
-  background-color: #1a1a1a;
-  transform: rotateY(180deg);
-  position: relative;
-  overflow: hidden;
-}
-
-.card-bg-image {
-  position: absolute;
-  inset: 0;
-  background: url("mebutsilly.png") no-repeat right bottom;
-  background-size: contain;
-  opacity: 0.15;
-  filter: contrast(120%) saturate(150%);
-  pointer-events: none;
-}
-
-.card-back-text {
-  position: relative;
-  z-index: 2;
-  color: #fff;
-  text-shadow: 1px 1px #000;
-  max-width: 90%;
-}
-
-.card-back-text h2 {
-  color: #ff2969;
-  font-size: 1.3rem;
-  margin-bottom: 0.5em;
-}
-
-/* -------------------------------------------------------- */
-/* MMFPH BUTTON SUPER IMPORTANTE OR ELSE EVERYTHING BREAKS*/
-/* -------------------------------------------------------- */
-
-.button-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(88px, 1fr));
-  gap: 10px;
-  justify-items: center;
-  margin-top: 1em;
-}
-
-.button-grid a img {
-  width: 88px;
-  height: 31px;
-  border: 1px solid #444;
-  box-shadow: 0 0 5px #ff2969aa;
-  transition: transform 0.2s ease-in-out;
-}
-
-.button-grid a img:hover {
-  transform: scale(1.05);
-}
-
-.site-button {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.site-button textarea {
-  font-family: monospace;
-  font-size: 0.7em;
-}
-
-.xp-popup {
-  margin: 3rem auto;
-  max-width: 500px;
-  background: linear-gradient(to bottom right, #2c0000, #520010);
-  border: 3px solid #ff2969;
-  border-radius: 8px;
-  box-shadow: 0 0 20px #ff296988, inset 0 0 8px #000;
-  font-family: 'Segoe UI', sans-serif;
-  color: white;
-}
-
-.xp-header {
-  background: linear-gradient(to right, #ff2969c1, #8b0000);
-  padding: 10px;
-  font-weight: bold;
-  font-size: 1rem;
-  border-bottom: 2px solid black;
-  text-shadow: 1px 1px black;
-}
-
-.infinite-banner {
-  overflow: hidden;
-  white-space: nowrap;
-  padding: 10px;
-  background: #1a0007;
-  border-top: 2px solid #ff2969;
-  border-bottom-left-radius: 8px;
-  border-bottom-right-radius: 8px;
-  position: relative;
-  height: 50px;
-}
-
-.banner-track {
-  display: inline-block;
-  white-space: nowrap;
-  animation: scroll-blinkies 25s linear infinite;
-}
-
-.banner-track img {
-  height: auto;
-  max-height: 40px;
-  margin-right: 20px;
-  vertical-align: middle;
-  border: 1px solid #000;
-  box-shadow: 0 0 5px #ff296988;
-  background: #111;
-}
-
-@keyframes scroll-blinkies {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-50%);
-  }
-}
-
-
-.vista-player {
-  max-width: 600px;
-  margin: 3rem auto;
-  padding: 20px;
-  background: linear-gradient(145deg, #cfcfcf, #f0f0f0);
-  border-radius: 12px;
-  box-shadow: 0 0 20px #ff296980, inset 0 0 10px #ffffff70;
-  display: flex;
-  align-items: center;
-  gap: 20px;
-  border: 2px solid #888;
-  backdrop-filter: blur(4px);
-}
-
-.video-thumb iframe {
-  width: 240px;
-  height: 135px;
-  border-radius: 8px;
-  box-shadow: 0 0 12px rgba(0,0,0,0.2);
-}
-
-.player-controls {
-  flex-grow: 1;
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-}
-
-.player-controls button {
-  background: linear-gradient(to bottom, #e6e6e6, #aaa);
-  color: #000;
-  border: 1px solid #444;
-  border-radius: 8px;
-  padding: 10px 20px;
-  font-weight: bold;
-  font-family: 'Segoe UI', sans-serif;
-  cursor: pointer;
-  box-shadow: inset 0 1px 1px #fff, 0 1px 5px rgba(0,0,0,0.3);
-}
-
-.player-controls input[type="range"] {
-  width: 100%;
-  appearance: none;
-  height: 8px;
-  border-radius: 4px;
-  background: #ff0078;
-  outline: none;
-  box-shadow: inset 0 1px 1px #fff, 0 1px 5px rgba(0,0,0,0.2);
-}
-
-/* -------------------------------------------------------- */
-/* mober phone option */
-/* -------------------------------------------------------- */
-
-@media (max-width: 800px) {
-  .layout {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-  }
-
-  
-  .page-wrap {
-    display: flex;
-    flex-direction: column;
-    align-items: stretch; 
-    gap: 10px;
-    width: 100%;
-  }
-
-  .left-sidebar, .right-sidebar, main {
-    flex: none;
-    width: 100% !important;
-    box-sizing: border-box;
-  }
-
-
-  .site-header img {
-    max-width: 100%;
-    height: auto;
-  }
-
-  .site-nav {
-    display: flex;
-    flex-wrap: wrap; 
-    justify-content: center;
-    gap: 10px;
-  }
-
-  #ytPlayer {
-
-    width: 100% !important;
-    height: auto;
-    aspect-ratio: 16 / 9;
-  }
-}
-
-
-</style>
 </body>
 </html>
