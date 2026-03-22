@@ -9,19 +9,37 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 
 <style>
-:root{
-    --bg: #0f1720;
-    --panel: #132a3a;
-    --accent: #3aa374;
-    --accent-light: #b7e4c7;
-    --text: #f1f5f9;
+:root {
+    --bg-dark: #0a0f1a;
+    --panel: #0f1c2e;          
+    --accent: #2e8b57;      
+    --accent-light: #90ee90;     
+    --glow: rgba(46, 139, 87, 0.4); 
+    --text: #e0f7fa;           
+    --text-muted: #b0e0e6;
 }
 
 body{
     margin:0;
     font-family:'Inter', sans-serif;
-    background: var(--bg);
+    background: linear-gradient(to bottom, #0a0f1a, #001f3f, #0a1f2e);  
     color: var(--text);
+    background-attachment: fixed;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: radial-gradient(circle at 30% 70%, rgba(144, 238, 144, 0.05), transparent 40%);
+    pointer-events: none;
+    z-index: -1;
+    animation: subtle-glow 20s infinite alternate ease-in-out;
+}
+
+@keyframes subtle-glow {
+    0% { opacity: 0.3; transform: translate(0, 0); }
+    100% { opacity: 0.6; transform: translate(5%, 10%); }
 }
 
 header{
@@ -38,25 +56,44 @@ header h1{
 }
 
 nav{
+    background: rgba(15, 28, 46, 0.85);  
+    backdrop-filter: blur(8px); 
     display:flex;
     justify-content:center;
     flex-wrap:wrap;
-    background:#0c1b26;
+    border-bottom: 1px solid var(--accent);
 }
 
 nav button{
     background:none;
     border:none;
-    color:var(--text);
+    color: var(--text-muted);
+    transition: all 0.4s ease;
     padding:15px 20px;
     font-weight:600;
     cursor:pointer;
-    transition:0.3s;
+    position: relative;
+    overflow: hidden;
 }
 
-nav button:hover{
-    background: rgb(134, 255, 164);
-    color:#000;
+nav button::after {
+    content: '';
+    position: absolute;
+    top: 0; left: -100%;
+    width: 100%; height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(134,255,164,0.3), transparent);
+    transition: 0.6s;
+}
+
+nav button:hover {
+    color: #000;
+    background: var(--accent-light);
+    box-shadow: 0 0 15px var(--glow);
+    transform: translateY(-3px);
+}
+
+nav button:hover::after {
+    left: 100%;
 }
 
 .tab{
@@ -64,26 +101,42 @@ nav button:hover{
     max-width:900px;
     margin:40px auto;
     padding:30px;
-    background:var(--panel);
     border-radius:10px;
-    box-shadow:0 0 15px rgba(0,0,0,0.4);
+    background: rgba(15, 28, 46, 0.92);
+    backdrop-filter: blur(5px);
+    border: 1px solid var(--accent);
+    box-shadow: 0 0 40px var(--glow), inset 0 0 20px rgba(144, 238, 144, 0.1);
 }
 
 .tab.active{
     display:block;
+    border: 1px solid var(--accent-light);
+    box-shadow: 0 0 35px rgba(58, 163, 116, 0.3);
 }
 
-img{
+
+img {
     max-width:100%;
-    border-radius:10px;
-    margin:20px 0;
+    max-height: 300px;
+    border: 2px solid var(--accent);
+    box-shadow: 0 0 20px var(--glow);
+    transition: all 0.5s ease;
 }
 
-h2{
-    color:var(--accent-light);
+img:hover {
+    transform: scale(1.05) rotate(1deg);  /* Organic "grow" feel */
+    box-shadow: 0 0 30px var(--glow);
+}
+
+h2 {
+    color: var(--accent-light);
+    text-shadow: 0 0 10px var(--glow);
+    font-weight: 600;
 }
 
 footer{
+    background: linear-gradient(to top, var(--bg-dark), transparent);
+    color: var(--text-muted);
     text-align:center;
     padding:20px;
     font-size:0.9em;
@@ -102,13 +155,14 @@ footer{
 
 <header>
     <h1>The Environmental Cost of Generative AI</h1>
-</header>
+      <h6>Citlalli Ramos</h6>
+    </header>
 
 <nav>
     <button onclick="openTab('home')">Home</button>
-    <button onclick="openTab('cost')">Tab One</button>
-    <button onclick="openTab('energy')">Tab Two</button>
-    <button onclick="openTab('solutions')">Tab Three</button>
+    <button onclick="openTab('cost')">Energy & Carbon Cost</button>
+    <button onclick="openTab('water')">Water Consumption & Resource Strain</button>
+    <button onclick="openTab('solutions')">Solutions</button>
     <button onclick="openTab('works')">Works Cited</button>
 </nav>
 
@@ -119,37 +173,47 @@ footer{
 
     <h5>Richard Hurd. "The AI Energy Shock." Licensed under Creative Commons Attribution-ShareAlike 3.0 Unported.</h5>
 <hr>
-<p>Artificial intelligence, mostly used to refer to Large Language Models (LLMs), is often framed as a revolutionary technological advancement that promises efficiency across nearly every sector of society. However, behind their sleek interfaces and instant responses lies a massive physical infrastructure that is slowly draining our natural resources.</p>
+<p>Artificial intelligence, mostly used to refer to Large Language Models (LLMs) and Generative Image/Video models, is often framed as a revolutionary technological advancement that promises efficiency across nearly every sector of society. However, behind their sleek interfaces and instant responses lies a massive physical infrastructure that is slowly draining our natural resources.</p>
     <p>
         Generative AI poses a significant environmental threat, considering its high energy and water consumption. Immediate policy action to mandate the usage of renewable energy is necessary to avoid accelerating extreme climate change.
     </p>
 </div>
 
 <div id="cost" class="tab">
-    <h2>Point One</h2>
-
-    <p>placeholder text</p>
+    <h2>Energy & Carbon Cost</h2>
+    <p>Generative AI relies on massive data centers for training and inference (running queries), driving unprecedented energy demand. Global data center electricity consumption reached about 460 terawatt-hours (TWh) in 2022, equivalent to the 11th largest national consumer worldwide. Projections show this surging significantly, with estimates up to around 1,050 TWh by 2026, ranking data centers among the top global electricity users. In fact, data centers are the fifth largest electricity users globally, between Japan and Russia (Zewe, MIT News, 2025).</p>
+    <p>AI is a primary driver: Power demand from AI systems alone reached up to 23 gigawatts (GW) by the end of 2025. This translates to carbon emissions of 32.6 – 79.7 million tons of CO₂ in 2025, roughly matching New York City's annual emissions (~52 million tons) (de Vries-Gao, 2025). Training a single large model like early GPT versions consumed over 1,287 megawatt-hours (enough to power 120 U.S. homes for a year) and emitted hundreds of tons of CO₂. Inference now dominates as billions of daily queries add up, often relying on fossil-fuel-heavy grids (Noble and Berry, 2024; GAO, 2025).</p>
+    <p>These impacts increase reliance on non-renewable sources and accelerates extreme climate change, undermining global sustainability goals without rapid intervention.</p>
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Google_Data_Center%2C_The_Dalles.jpg/1280px-Google_Data_Center%2C_The_Dalles.jpg?_=20110919031820" alt="data center">
+<p><small>Visitor7 "Google Data Center, The Dalles". Licensed under Creative Commons Attribution-Share Alike 3.0 Unported.</small></p>
 </div>
 
-<div id="energy" class="tab">
-    <h2>Point Two</h2>
-
-    <p>placeholder text</p>
+<div id="water" class="tab">
+    <h2>Water Consumption & Resource Strain</h2>
+    <p>Beyond electricity, generative AI's infrastructure demands enormous water amounts for server cooling and indirect power generation (e.g., thermoelectric plants). AI systems' water footprint reached an estimated 312.5–764.6 billion liters in 2025, which is comparable to global annual bottled water consumption (~446 billion liters) (de Vries-Gao, 2025). A single median text prompt in efficient systems uses about 0.26 mL (roughly five drops), but scaled to billions of interactions, the total is staggering (Miller, 2025).</p>
+    <p>Data centers in water-stressed regions exacerbate shortages, with evaporative cooling consuming up to several liters per kWh. Indirect water use from fossil-fuel electricity also adds far more strain. Combined with energy demands, our current water usage threatens our ecosystem, local supplies, and food security in vulnerable areas (UNEP, 2025; Kanungo, 2024).</p>
+<img src="HallC.jpg" alt="data center">
+<p><small>Aileen Devlin | Jefferson Lab "The recirculating electron accelerator inside Hall C". Licensed under Public Domain (CC0).</small></p>
 </div>
 
 <div id="solutions" class="tab">
-    <h2>Point Three</h2>
-
-    <p>placeholder text</p>
+    <h2>Solutions</h2>
+<p>Mitigating generative AI's impacts requires multi-level action. Better hardware optimization and on-device processing have reduced per-prompt energy/water use dramatically (e.g., 33x energy drop in some models from 2024-2025) (Miller, 2025). Companies can shift to renewables and improvize cooling methods (e.g., closed-loop systems) (UNEP, 2025).</p>
+    <p>However, voluntary measures fall short amid explosive growth. Standardized impact reporting and regulations accompanied by mandatory disclosures (e.g., EU-style energy efficiency rules) are essential. Governments should mandate renewable energy sourcing for AI infrastructure and incentivize green innovation to prevent rebound effects where efficiency spurs more use (GAO, 2025; de Vries-Gao, 2025).</p>
+    <p>Generative AI poses a significant environmental threat through high energy and water consumption. Immediate policy action to mandate renewable energy is necessary to avoid accelerating extreme climate change. As we only have one home, taking care of it must take priority over the unchecked advancement of digital technology.
+<img src="Climate Change.jpg" alt="data center">
+<p><small>"Climate Change" by Kai Stachowiak. Licensed under Public Domain (CC0).</small></p>
+</p>
 </div>
 
 <div id="works" class="tab">
-    <h2>Works Cited</h2>
-<p><span style="font-weight: 400;">Adam Zewe&nbsp; |&nbsp; MIT News. &ldquo;Explained: Generative AI&rsquo;s Environmental Impact.&rdquo; </span><em><span style="font-weight: 400;">MIT News | Massachusetts Institute of Technology</span></em><span style="font-weight: 400;">, news.mit.edu/2025/explained-generative-ai-environmental-impact-0117.</span></p>
-<p><span style="font-weight: 400;">&ldquo;AI Has an Environmental Problem. Here&rsquo;s What the World Can Do about That.&rdquo; </span><em><span style="font-weight: 400;">UNEP - UN Environment Programme</span></em><span style="font-weight: 400;">, www.unep.org/news-and-stories/story/ai-has-environmental-problem-heres-what-world-can-do-about.</span></p>
-<p><span style="font-weight: 400;">Kanungo, Alokya. &ldquo;The Real Environmental Impact of AI.&rdquo; </span><em><span style="font-weight: 400;">Earth.Org</span></em><span style="font-weight: 400;">, 5 Mar. 2024, earth.org/the-green-dilemma-can-ai-fulfil-its-potential-without-harming-the-environment/.</span></p>
-<p><span style="font-weight: 400;">Noble, Gordon, and Fiona Berry. &ldquo;Ai&rsquo;s Environmental Footprint: How Much Energy Does It Take to Run CHATGPT?&rdquo; </span><em><span style="font-weight: 400;">Planet Detroit</span></em><span style="font-weight: 400;">, 2 Oct. 2024, planetdetroit.org/2024/10/ai-energy-carbon-emissions/.</span></p>
-<p><span style="font-weight: 400;">Office, U.S. Government Accountability. &ldquo;Artificial Intelligence: Generative AI&rsquo;s Environmental and Human Effects.&rdquo; </span><em><span style="font-weight: 400;">Artificial Intelligence: Generative AI&rsquo;s Environmental and Human Effects | U.S. GAO</span></em><span style="font-weight: 400;">, www.gao.gov/products/gao-25-107172. Accessed 12 Dec. 2025. </span></p>
+    <h2>Works Cited</h2><p>Adam Zewe | MIT News. &ldquo;Explained: Generative AI&rsquo;s Environmental Impact.&rdquo; MIT News | Massachusetts Institute of Technology, news.mit.edu/2025/explained-generative-ai-environmental-impact-0117.</p>
+<p>de Vries-Gao, Alex. &ldquo;The carbon and water footprints of data centers and what this could mean for artificial intelligence.&rdquo; Patterns (New York, N.Y.) vol. 7,1 101430. 17 Dec. 2025, doi:10.1016/j.patter.2025.101430</p>
+<p>&ldquo;AI Has an Environmental Problem. Here&rsquo;s What the World Can Do about That.&rdquo; UNEP - UN Environment Programme, www.unep.org/news-and-stories/story/ai-has-environmental-problem-heres-what-world-can-do-about.</p>
+<p>Kanungo, Alokya. &ldquo;The Real Environmental Impact of AI.&rdquo; Earth.Org, 5 Mar. 2024, earth.org/the-green-dilemma-can-ai-fulfil-its-potential-without-harming-the-environment/.</p>
+<p>Noble, Gordon, and Fiona Berry. &ldquo;Ai&rsquo;s Environmental Footprint: How Much Energy Does It Take to Run CHATGPT?&rdquo; Planet Detroit, 2 Oct. 2024, planetdetroit.org/2024/10/ai-energy-carbon-emissions/.</p>
+<p>Office, U.S. Government Accountability. &ldquo;Artificial Intelligence: Generative AI&rsquo;s Environmental and Human Effects.&rdquo; Artificial Intelligence: Generative AI&rsquo;s Environmental and Human Effects | U.S. GAO, www.gao.gov/products/gao-25-107172. Accessed 12 Dec. 2025.</p>
+<p>Miller, Carrie. &ldquo;The Real Environmental Footprint of Generative AI: What 2025 Data Tell Us.&rdquo; Online Learning Consortium, 4 Dec. 2025, onlinelearningconsortium.org/olc-insights/2025/12/the-real-environmental-footprint-of-generative-ai/.</p>
 </div>
 
 <footer>
@@ -166,5 +230,3 @@ function openTab(tabId){
 
 </body>
 </html>
-
-
